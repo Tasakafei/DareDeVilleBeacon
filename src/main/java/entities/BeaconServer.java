@@ -6,6 +6,7 @@ import javax.microedition.io.Connector;
 import javax.microedition.io.StreamConnection;
 import javax.microedition.io.StreamConnectionNotifier;
 import java.io.*;
+import java.util.Scanner;
 
 /**
  * Created by cazala on 04/01/17.
@@ -30,8 +31,8 @@ public class BeaconServer {
             System.out.println("Waiting for clients to connect...");
             connection = streamConnNotifier.acceptAndOpen();
             RemoteDevice dev = RemoteDevice.getRemoteDevice(connection);
-            System.out.println("Remote device address: " + dev.getBluetoothAddress());
-            System.out.println("Remote device name: " + dev.getFriendlyName(true));
+//            System.out.println("Remote device address: " + dev.getBluetoothAddress());
+//            System.out.println("Remote device name: " + dev.getFriendlyName(true));
 
             //read string from spp client
             InputStream inStream=connection.openInputStream();
@@ -45,7 +46,11 @@ public class BeaconServer {
             //send response to spp client
             OutputStream outStream = connection.openOutputStream();
             PrintWriter pWriter = new PrintWriter(new OutputStreamWriter(outStream));
-            pWriter.write("Diriges toi vers l'arbre. \r\n");
+
+            String messageSent = (new Scanner(System.in)).next();
+
+            pWriter.write(messageSent+" \r\n");
+//            pWriter.write("Diriges toi vers l'arbre. \r\n");
             pWriter.flush();
             pWriter.close();
             try {
