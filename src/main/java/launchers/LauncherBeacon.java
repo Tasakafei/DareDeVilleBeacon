@@ -15,6 +15,7 @@ public class LauncherBeacon {
         LocalDevice localDevice = LocalDevice.getLocalDevice();
         System.out.println("Address: "+localDevice.getBluetoothAddress());
         System.out.println("Name: "+localDevice.getFriendlyName());
+        System.out.println("Hello, I am a beacon !");
 
         BeaconServer SPPServer=new BeaconServer();
         SPPServer.startServer();

@@ -37,11 +37,12 @@ public class BeaconServer {
             //read string from spp client
             InputStream inStream=connection.openInputStream();
             BufferedReader bReader=new BufferedReader(new InputStreamReader(inStream));
-            System.err.println("Enter distance from device");
-            System.out.print(" > ");
 
             String lineRead=bReader.readLine();
-            System.out.println(lineRead);
+            System.out.println("Message received from device : " + lineRead + "\n");
+
+            System.out.print("Enter distance from device > ");
+
 
             //send response to spp client
             OutputStream outStream = connection.openOutputStream();
