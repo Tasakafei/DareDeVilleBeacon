@@ -59,7 +59,7 @@ public class BeaconServer {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("FInished");
+            System.out.println("Done, waiting again.");
             connection.close();
         }
     }
